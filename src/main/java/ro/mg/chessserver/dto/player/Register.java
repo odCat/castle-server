@@ -29,7 +29,7 @@ public class Register {
         private String username;
 
         @NotNull(message = "Password must not be null")
-        @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&+=]).{8,24}$",
+        @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+=-]).{8,24}$",
                 message = "Password must have 8-24 characters and include at least a digit, a lowercase, an uppercase and a symbol")
         private String password;
 
