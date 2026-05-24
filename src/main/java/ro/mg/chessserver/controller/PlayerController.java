@@ -74,10 +74,9 @@ public class PlayerController {
     @DeleteMapping()
     public ResponseEntity<Void> delete(@RequestParam long id, Authentication auth) {
         long loggedInUserId = Long.parseLong(auth.getName());
-        if (loggedInUserId != id)
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        if (loggedInUserId == id)
+            playerService.deletePlayer(id);
 
-        playerService.deletePlayer(id);
         return ResponseEntity.ok().build();
     }
 
