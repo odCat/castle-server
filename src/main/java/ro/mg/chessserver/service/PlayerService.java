@@ -85,6 +85,7 @@ public class PlayerService {
         player = createNewPlayer(id, player, update);
         playerRepository.save(player);
 
+        player.setPassword(jwtService.createToken(player.getId()));
         return player;
     }
 
