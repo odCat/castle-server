@@ -38,6 +38,8 @@ public class SecurityConfig {
                     .requestMatchers(HttpMethod.POST,"/players/login").permitAll()
                     .requestMatchers("/players/register").anonymous()
                     .requestMatchers("/players/history/*").permitAll()
+                    .requestMatchers("/v3/api-docs/**").permitAll()
+                    .requestMatchers("/swagger-ui/**").permitAll()
                     .requestMatchers("/websocket/**").permitAll()
                     .anyRequest().authenticated())
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
