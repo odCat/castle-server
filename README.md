@@ -1,3 +1,4 @@
+# castle-server
 This is a chess server application
 
 ## Why
