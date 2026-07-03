@@ -81,7 +81,8 @@ public class PlayerService {
         Player player = playerRepository.findById(id);
         if (player == null)
             return null;
-        update.setPassword(passwordEncoder.encode(update.getPassword()));
+        if (update.getPassword() != null)
+            update.setPassword(passwordEncoder.encode(update.getPassword()));
         player = createNewPlayer(id, player, update);
         playerRepository.save(player);
 
