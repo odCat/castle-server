@@ -63,7 +63,14 @@ public class PlayerController {
     }
 
     @PatchMapping
-    public ResponseEntity<Player> update(@RequestParam long id, @RequestBody Update update) {
+    public ResponseEntity<Player> update(@RequestParam long id,
+                                         @RequestBody Update update,
+                                         Authentication auth)
+    {
+        long loggedInUserId = Long.parseLong(auth.getName());
+        if (loggedInUserId != id)
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
+
         Player updated = playerService.update(id, update);
         if (updated == null)
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
