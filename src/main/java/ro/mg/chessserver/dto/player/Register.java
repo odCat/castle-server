@@ -23,7 +23,7 @@ public class Register {
         @Email(message = "Must be a valid email address")
         private String email;
 
-        @NotBlank(message = "Username must not be blank")
+        @NotBlank(message = "Username must have 4-24 characters and include only letters and digits.")
         @Size(min = 4, max = 24, message = "Username must have 4-24 characters and include only letters and digits.")
         @Pattern(regexp = "^[A-Za-z0-9]*$", message = "Username must have 4-24 characters and include only letters and digits.")
         private String username;
