@@ -64,7 +64,7 @@ public class PlayerController {
 
     @PatchMapping
     public ResponseEntity<Player> update(@RequestParam long id,
-                                         @RequestBody Update update,
+                                         @Valid @RequestBody Update update,
                                          Authentication auth)
     {
         long loggedInUserId = Long.parseLong(auth.getName());
